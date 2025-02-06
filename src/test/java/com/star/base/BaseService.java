@@ -3,6 +3,8 @@ package com.star.base;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.star.models.requests.LoginRequest;
+
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -17,7 +19,7 @@ public class BaseService {
 		requestSpecification = RestAssured.given().baseUri(baseURI);
 	}
 	
-	public Response postRequest(String payload, String endPoint) {
+	public Response postRequest(LoginRequest payload, String endPoint) {
 		return requestSpecification.contentType(ContentType.JSON).body(payload).post(endPoint);
 	}
 }
